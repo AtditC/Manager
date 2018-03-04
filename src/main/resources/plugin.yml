@@ -1,0 +1,12 @@
+name: Manager
+version: ${project.version}
+main: network.warzone.manager.Manager
+authors: [MatrixTunnel, JorgeberrexMC]
+website: http://warzone.store/
+depend: [TGM]
+commands:
+  tags:
+    description: Select your suffix tag
+    aliases: [tag]
+    usage: /tags
+  manager: {}
