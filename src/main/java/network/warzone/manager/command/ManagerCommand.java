@@ -22,7 +22,7 @@ public class ManagerCommand implements CommandExecutor {
             return true;
         }
         if (args.length < 4) {
-            sender.sendMessage(ChatColor.RED + "Usage: /" + label + " <add/remove> <player> <tag>");
+            sender.sendMessage(ChatColor.RED + "Usage: /" + label + " tags <add/remove> <player> <tag>");
             return true;
         }
         if (args[0].equalsIgnoreCase("tags") || args[0].equalsIgnoreCase("tag")) {
