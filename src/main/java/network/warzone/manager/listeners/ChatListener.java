@@ -24,8 +24,8 @@ public class ChatListener implements Listener{
         MatchTeam matchTeam = TGM.get().getModule(TeamManagerModule.class).getTeam(event.getPlayer());
         String prefix = playerContext.getUserProfile().getPrefix() != null ? ChatColor.translateAlternateColorCodes('&', playerContext.getUserProfile().getPrefix().trim()) + " " : "";
         PlayerProfile profile = Manager.getInstance().getPlayerManager().getPlayerProfile(event.getPlayer());
-
-        event.setFormat(playerContext.getLevelString() + " " + prefix + matchTeam.getColor() + event.getPlayer().getName() + ChatColor.GRAY + (!profile.getDisplayTag().isEmpty() && profile != null ? " [" + profile.getDisplayTag() + "]" : "") + ChatColor.WHITE + ": " + event.getMessage().replaceAll("%", "%%"));
+        String tag = !profile.getDisplayTag().isEmpty() && profile != null ? ChatColor.GRAY + " [" + ChatColor.translateAlternateColorCodes('&', profile.getDisplayTag()) + ChatColor.GRAY + "]" : "";
+        event.setFormat(playerContext.getLevelString() + " " + prefix + matchTeam.getColor() + event.getPlayer().getName() + tag + ChatColor.WHITE + ": " + event.getMessage().replaceAll("%", "%%"));
     }
 
 }

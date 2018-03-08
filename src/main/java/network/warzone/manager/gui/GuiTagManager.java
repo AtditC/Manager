@@ -82,7 +82,7 @@ public class GuiTagManager {
             this.itemStack = new ItemStack(this.tag.equals(profile.getDisplayTag()) ? Material.EMPTY_MAP : Material.PAPER);
             ItemMeta meta = itemStack.getItemMeta();
             meta.setDisplayName(ChatColor.RESET + tag);
-            meta.setLore(Arrays.asList("",ChatColor.GRAY + "Preview: [" + tag + "]"));
+            meta.setLore(Arrays.asList("",ChatColor.GRAY + "Preview: [" + ChatColor.translateAlternateColorCodes('&', tag) + ChatColor.GRAY + "]"));
             this.itemStack.setItemMeta(meta);
         }
 
