@@ -4,10 +4,10 @@ import com.sk89q.minecraft.util.commands.ChatColor;
 import network.warzone.manager.Manager;
 import network.warzone.manager.model.PlayerProfile;
 import network.warzone.tgm.TGM;
+import network.warzone.tgm.modules.StatsModule;
 import network.warzone.tgm.modules.team.MatchTeam;
 import network.warzone.tgm.modules.team.TeamManagerModule;
 import network.warzone.tgm.user.PlayerContext;
-import network.warzone.warzoneapi.models.Punishment;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -25,7 +25,8 @@ public class ChatListener implements Listener{
         String prefix = playerContext.getUserProfile().getPrefix() != null ? ChatColor.translateAlternateColorCodes('&', playerContext.getUserProfile().getPrefix().trim()) + " " : "";
         PlayerProfile profile = Manager.getInstance().getPlayerManager().getPlayerProfile(event.getPlayer());
         String tag = !profile.getDisplayTag().isEmpty() && profile != null ? ChatColor.GRAY + " [" + ChatColor.translateAlternateColorCodes('&', profile.getDisplayTag()) + ChatColor.GRAY + "]" : "";
-        event.setFormat(playerContext.getLevelString() + " " + prefix + matchTeam.getColor() + event.getPlayer().getName() + tag + ChatColor.WHITE + ": " + event.getMessage().replaceAll("%", "%%"));
+        event.setFormat((TGM.get().getModule(StatsModule.class).isStatsDisabled() ? "" : playerContext.getLevelString() + " ") +
+                prefix + matchTeam.getColor() + event.getPlayer().getName() + tag + ChatColor.WHITE + ": " + event.getMessage().replaceAll("%", "%%"));
     }
 
 }
