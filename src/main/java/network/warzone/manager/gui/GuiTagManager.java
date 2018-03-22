@@ -1,6 +1,5 @@
 package network.warzone.manager.gui;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import network.warzone.manager.Manager;
 import network.warzone.manager.model.PlayerProfile;
@@ -9,7 +8,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -33,10 +31,10 @@ public class GuiTagManager {
 
     public GuiTagManager(Player player) {
         this.player = player;
-        this.profile = Manager.getInstance().getPlayerManager().getPlayerProfile(player);
+        this.profile = Manager.get().getPlayerManager().getPlayerProfile(player);
         createInventory();
         refresh();
-        Manager.getInstance().getGuiManager().addGui(player, this);
+        Manager.get().getGuiManager().addGui(player, this);
     }
 
     private void createInventory() {

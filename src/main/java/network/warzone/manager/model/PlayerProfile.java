@@ -60,7 +60,7 @@ public class PlayerProfile {
     }
 
     private void save() {
-        Manager.getInstance().getPlayerManager().saveProfileToStorage(this);
+        Manager.get().getPlayerManager().saveProfileToStorage(this);
     }
 
     public boolean shouldSave() {

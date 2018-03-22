@@ -23,7 +23,7 @@ public class ChatListener implements Listener{
         PlayerContext playerContext = TGM.get().getPlayerManager().getPlayerContext(event.getPlayer());
         MatchTeam matchTeam = TGM.get().getModule(TeamManagerModule.class).getTeam(event.getPlayer());
         String prefix = playerContext.getUserProfile().getPrefix() != null ? ChatColor.translateAlternateColorCodes('&', playerContext.getUserProfile().getPrefix().trim()) + " " : "";
-        PlayerProfile profile = Manager.getInstance().getPlayerManager().getPlayerProfile(event.getPlayer());
+        PlayerProfile profile = Manager.get().getPlayerManager().getPlayerProfile(event.getPlayer());
         String tag = !profile.getDisplayTag().isEmpty() && profile != null ? ChatColor.GRAY + " [" + ChatColor.translateAlternateColorCodes('&', profile.getDisplayTag()) + ChatColor.GRAY + "]" : "";
         event.setFormat((TGM.get().getModule(StatsModule.class).isStatsDisabled() ? "" : playerContext.getLevelString() + " ") +
                 prefix + matchTeam.getColor() + event.getPlayer().getName() + tag + ChatColor.WHITE + ": " + event.getMessage().replaceAll("%", "%%"));

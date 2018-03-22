@@ -1,7 +1,6 @@
 package network.warzone.manager.listeners;
 
 import network.warzone.manager.Manager;
-import network.warzone.tgm.TGM;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -14,12 +13,12 @@ public class JoinListener implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
-        Manager.getInstance().getPlayerManager().addPlayerProfile(event.getPlayer());
+        Manager.get().getPlayerManager().addPlayerProfile(event.getPlayer());
     }
 
     @EventHandler
     public void onQuit(PlayerQuitEvent event) {
-        Manager.getInstance().getPlayerManager().removePlayerProfile(event.getPlayer());
+        Manager.get().getPlayerManager().removePlayerProfile(event.getPlayer());
     }
 
 }
