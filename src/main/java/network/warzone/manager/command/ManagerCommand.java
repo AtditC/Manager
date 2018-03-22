@@ -38,14 +38,14 @@ public class ManagerCommand implements CommandExecutor {
                     }
                     Player player;
                     if ((player = Bukkit.getPlayer(uuid)) != null) {
-                        if (Manager.getInstance().getPlayerManager().getPlayerProfile(player).addTag(tag)) {
+                        if (Manager.get().getPlayerManager().getPlayerProfile(player).addTag(tag)) {
                             sender.sendMessage("Added tag to " + player.getName());
                         } else {
                             sender.sendMessage(ChatColor.RED + "User already had the specified tag.");
                         }
                         return true;
                     } else {
-                        if (Manager.getInstance().getPlayerManager().addTagToOfflineUser(uuid, tag)) {
+                        if (Manager.get().getPlayerManager().addTagToOfflineUser(uuid, tag)) {
                             sender.sendMessage("Added tag to " + uuid.toString());
                         } else {
                             sender.sendMessage(ChatColor.RED + "User already had the specified tag.");
@@ -55,7 +55,7 @@ public class ManagerCommand implements CommandExecutor {
                 } else {
                     Player player;
                     if ((player = Bukkit.getPlayer(args[2])) != null) {
-                        if (Manager.getInstance().getPlayerManager().getPlayerProfile(player).addTag(tag)) {
+                        if (Manager.get().getPlayerManager().getPlayerProfile(player).addTag(tag)) {
                             sender.sendMessage("Added tag to " + player.getName());
                         } else {
                             sender.sendMessage(ChatColor.RED + "User already had the specified tag.");
@@ -79,14 +79,14 @@ public class ManagerCommand implements CommandExecutor {
                     }
                     Player player;
                     if ((player = Bukkit.getPlayer(uuid)) != null) {
-                        if (Manager.getInstance().getPlayerManager().getPlayerProfile(player).removeTag(tag)) {
+                        if (Manager.get().getPlayerManager().getPlayerProfile(player).removeTag(tag)) {
                             sender.sendMessage("Removed tag from " + player.getName());
                         } else {
                             sender.sendMessage(ChatColor.RED + "User did not have the specified tag.");
                         }
                         return true;
                     } else {
-                        if (Manager.getInstance().getPlayerManager().removeTagFromOfflineUser(uuid, tag)) {
+                        if (Manager.get().getPlayerManager().removeTagFromOfflineUser(uuid, tag)) {
                             sender.sendMessage("Removed tag from " + uuid.toString());
                         } else {
                             sender.sendMessage(ChatColor.RED + "Could not remove tag from offline user.");
@@ -96,7 +96,7 @@ public class ManagerCommand implements CommandExecutor {
                 } else {
                     Player player;
                     if ((player = Bukkit.getPlayer(args[2])) != null) {
-                        if (Manager.getInstance().getPlayerManager().getPlayerProfile(player).removeTag(tag)) {
+                        if (Manager.get().getPlayerManager().getPlayerProfile(player).removeTag(tag)) {
                             sender.sendMessage("Removed tag from " + player.getName());
                         } else {
                             sender.sendMessage(ChatColor.RED + "User did not have the specified tag.");

@@ -4,7 +4,11 @@ main: network.warzone.manager.Manager
 authors: [MatrixTunnel, JorgeberrexMC]
 website: http://warzone.store/
 depend: [TGM]
+
 commands:
+  issue:
+    description: Sends a link to create a GitHub issue
+    usage: /issue
   tags:
     description: Select your suffix tag
     aliases: [tag]

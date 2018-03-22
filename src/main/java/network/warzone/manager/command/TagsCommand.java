@@ -12,10 +12,11 @@ import org.bukkit.entity.Player;
  * Created by Jorge on 2/23/2018.
  */
 public class TagsCommand implements CommandExecutor {
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
-            if (Manager.getInstance().getPlayerManager().getPlayerProfile((Player) sender).getTags().isEmpty()) {
+            if (Manager.get().getPlayerManager().getPlayerProfile((Player) sender).getTags().isEmpty()) {
                 sender.sendMessage(ChatColor.RED + "You do not have any tags to enable! Purchase some online at https://warzone.store/");
                 return true;
             }
@@ -28,4 +29,5 @@ public class TagsCommand implements CommandExecutor {
 
         return true;
     }
+
 }
