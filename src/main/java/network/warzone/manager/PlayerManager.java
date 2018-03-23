@@ -24,7 +24,7 @@ public class PlayerManager {
         if (!usersDir.exists() || !usersDir.isDirectory()) {
             usersDir.mkdir();
         }
-        Bukkit.getOnlinePlayers().forEach(player -> addPlayerProfile(player));
+        Bukkit.getOnlinePlayers().forEach(this::addPlayerProfile);
     }
 
     public void addPlayerProfile(Player player) {

@@ -3,6 +3,7 @@ package network.warzone.manager.command;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.md_5.bungee.api.chat.HoverEvent;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -18,14 +19,13 @@ public class IssueCommand implements CommandExecutor {
         if (sender instanceof Player) {
             Player player = (Player) sender;
 
-
-            sender.spigot().sendMessage(new ComponentBuilder("\nClick ").color(ChatColor.GREEN)
+            player.sendMessage(new ComponentBuilder("\nClick ").color(ChatColor.GREEN)
                     .append(new ComponentBuilder("here")
                             .color(ChatColor.AQUA)
-                            .underlined(true)
-                            .event(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://warzone.typeform.com/to/lqFP51?token=" + player.getUniqueId().toString().replace("-", ""))).create())
-                    .append(new ComponentBuilder(" to fill out a forum and create an issue automatically!\n")
-                            .color(ChatColor.GREEN).create())
+                            .event(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://warzone.typeform.com/to/lqFP51?token=" + player.getUniqueId().toString().replace("-", "")))
+                            .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Click!").color(ChatColor.YELLOW).create())).create())
+                    .append(new ComponentBuilder(" to submit an issue to our dev team\n")
+                            .reset().color(ChatColor.GREEN).create())
                     .create());
             return true;
         }
