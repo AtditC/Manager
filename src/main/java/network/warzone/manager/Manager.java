@@ -3,6 +3,7 @@ package network.warzone.manager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import lombok.Getter;
+import network.warzone.manager.command.GithubCommand;
 import network.warzone.manager.command.IssueCommand;
 import network.warzone.manager.command.ManagerCommand;
 import network.warzone.manager.command.TagsCommand;
@@ -40,6 +41,7 @@ public final class Manager extends JavaPlugin {
         getCommand("tags").setExecutor(new TagsCommand());
         getCommand("manager").setExecutor(new ManagerCommand());
         getCommand("issue").setExecutor(new IssueCommand());
+        getCommand("github").setExecutor(new GithubCommand());
     }
 
     @Override

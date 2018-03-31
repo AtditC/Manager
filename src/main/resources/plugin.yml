@@ -14,3 +14,7 @@ commands:
     aliases: [tag]
     usage: /tags
   manager: {}
+  github:
+    description: Get the link to our GitHub
+    aliases: [gh]
+    usage: /github
