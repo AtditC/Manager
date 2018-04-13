@@ -1,6 +1,6 @@
 package network.warzone.manager.listeners;
 
-import com.sk89q.minecraft.util.commands.ChatColor;
+import net.md_5.bungee.api.ChatColor;
 import network.warzone.manager.Manager;
 import network.warzone.manager.model.PlayerProfile;
 import network.warzone.tgm.TGM;
