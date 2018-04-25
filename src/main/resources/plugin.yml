@@ -15,6 +15,13 @@ commands:
     usage: /tags
   manager: {}
   github:
-    description: Get the link to our GitHub
+    description: Sends a link to our GitHub
     aliases: [gh]
     usage: /github
+  forums:
+    description: Sends a link to our forums
+    usage: /forums
+  store:
+    description: Sends a link to our store
+    aliases: [shop]
+    usage: /store
