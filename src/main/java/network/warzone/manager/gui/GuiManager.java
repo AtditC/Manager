@@ -22,9 +22,8 @@ public class GuiManager implements Listener {
         GuiTagManager gui = guis.get((Player) event.getWhoClicked());
         if (event.getInventory().equals(gui.getInventory())) {
             event.setCancelled(true);
-            if (event.getClickedInventory() != null && event.getClickedInventory().equals(gui.getInventory())) {
+            if (event.getClickedInventory() != null && event.getClickedInventory().equals(gui.getInventory()))
                 gui.onClick(event.getSlot());
-            }
         }
     }
 
