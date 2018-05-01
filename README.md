@@ -1,6 +1,6 @@
 # Manager
 
-The Manager plugin is used on the Warzone server for assigning tags to different players. It's an extremely simple plugin that can be ran on many servers and isn't too hard to learn and run for yourself.
+The Manager plugin is used on the Warzone server for assigning tags to different players.
 
 **Usage:**
 
