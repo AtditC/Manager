@@ -1,3 +1,5 @@
+[![Build Status](https://jenkins.warzone.network/buildStatus/icon?job=Manager)](https://jenkins.warzone.network/job/Manager)
+
 # Manager
 
 The Manager plugin is used on the Warzone server for assigning tags to different players.
