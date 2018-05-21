@@ -1,4 +1,4 @@
-[![Build Status](https://jenkins.warzone.network/buildStatus/icon?job=Manager)](https://jenkins.warzone.network/job/Manager)
+[![Build Status](https://jenkins.bennydoesstuff.me/buildStatus/icon?job=Manager)](https://jenkins.bennydoesstuff.me/job/Manager)
 
 # Manager
 
