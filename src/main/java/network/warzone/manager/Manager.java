@@ -37,7 +37,6 @@ public final class Manager extends JavaPlugin {
 
         getCommand("tags").setExecutor(new TagsCommand());
         getCommand("manager").setExecutor(new ManagerCommand());
-        getCommand("issue").setExecutor(new IssueCommand());
         getCommand("github").setExecutor(new GithubCommand());
         getCommand("forums").setExecutor(new ForumsCommand());
         getCommand("store").setExecutor(new StoreCommand());
