@@ -80,7 +80,7 @@
         </dependency>
         <dependency>
             <groupId>network.warzone</groupId>
-            <artifactId>warzone</artifactId>
+            <artifactId>TGM</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
