@@ -57,8 +57,8 @@
 
     <repositories>
         <repository>
-            <id>destroystokyo-repo</id>
-            <url>https://repo.destroystokyo.com/repository/maven-public/</url>
+            <id>benny-repo</id>
+            <url>https://repo.bennydoesstuff.me/service/rest/repository/browse/public</url>
         </repository>
         <repository>
             <id>sonatype</id>
