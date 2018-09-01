@@ -56,10 +56,11 @@
     </build>
 
     <repositories>
-        <repository>
-            <id>benny-repo</id>
-            <url>https://repo.bennydoesstuff.me/service/rest/repository/browse/public</url>
+	<repository>
+            <id>tgm-repo</id>
+            <url>https://repo.braeh.com/content/repositories/snapshots/</url>
         </repository>
+        
         <repository>
             <id>sonatype</id>
             <url>https://oss.sonatype.org/content/groups/public/</url>
