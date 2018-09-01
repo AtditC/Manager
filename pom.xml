@@ -58,7 +58,7 @@
     <repositories>
 	<repository>
             <id>tgm-repo</id>
-            <url>https://repo.braeh.com/content/repositories/snapshots/</url>
+            <url>https://warzonerepo.braeh.com/content/repositories/snapshots/</url>
         </repository>
         
         <repository>
