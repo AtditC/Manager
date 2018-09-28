@@ -40,6 +40,7 @@ public class ManagerCommand implements CommandExecutor {
                     if ((player = Bukkit.getPlayer(uuid)) != null) {
                         if (Manager.get().getPlayerManager().getPlayerProfile(player).addTag(tag)) {
                             sender.sendMessage("Added tag to " + player.getName());
+                            player.sendMessage(ChatColor.GREEN + "You've received the " + ChatColor.GRAY + "[" + ChatColor.translateAlternateColorCodes('&', tag) + ChatColor.GRAY + "]" + ChatColor.GREEN + " tag!");
                         } else {
                             sender.sendMessage(ChatColor.RED + "User already had the specified tag.");
                         }
@@ -57,6 +58,7 @@ public class ManagerCommand implements CommandExecutor {
                     if ((player = Bukkit.getPlayer(args[2])) != null) {
                         if (Manager.get().getPlayerManager().getPlayerProfile(player).addTag(tag)) {
                             sender.sendMessage("Added tag to " + player.getName());
+                            player.sendMessage(ChatColor.GREEN + "You've received the " + ChatColor.GRAY + "[" + ChatColor.translateAlternateColorCodes('&', tag) + ChatColor.GRAY + "]" + ChatColor.GREEN + " tag!");
                         } else {
                             sender.sendMessage(ChatColor.RED + "User already had the specified tag.");
                         }
