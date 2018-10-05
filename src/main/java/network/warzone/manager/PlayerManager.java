@@ -1,7 +1,10 @@
 package network.warzone.manager;
 
+import com.destroystokyo.paper.Title;
 import network.warzone.manager.model.PlayerProfile;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
 import java.io.*;
@@ -30,10 +33,19 @@ public class PlayerManager {
     public void addPlayerProfile(Player player) {
         PlayerProfile profile = getProfileFromStorage(player.getUniqueId());
         if (profile == null) {
-            profile = new PlayerProfile(player.getUniqueId(), player.getName(), "", new ArrayList<>());
+            profile = new PlayerProfile(player.getUniqueId(), player.getName(), "", new ArrayList<>(), null, new ArrayList<>());
             if (profile.shouldSave()) saveProfileToStorage(profile);
         }
         profiles.put(player, profile);
+        final PlayerProfile finalProfile = profile;
+        Bukkit.getScheduler().runTaskLater(Manager.get(), () -> {
+            if (finalProfile.getJoinSound() != null) {
+                Bukkit.getOnlinePlayers().forEach(op -> {
+                    op.playSound(op.getEyeLocation(), finalProfile.getJoinSound(), 2.0f, 1.0f);
+                    op.sendActionBar(ChatColor.AQUA + player.getName() + " is here!");
+                });
+            }
+        }, 5L);
     }
 
     public void removePlayerProfile(Player player) {
@@ -73,15 +85,27 @@ public class PlayerManager {
     public boolean addTagToOfflineUser(UUID uuid, String tag) {
         PlayerProfile profile = getProfileFromStorage(uuid);
         if (profile == null) {
-            profile = new PlayerProfile(uuid, "", "", new ArrayList<>());
+            profile = new PlayerProfile(uuid, "", "", new ArrayList<>(), null, new ArrayList<>());
         }
         return profile.addTag(tag);
     }
 
     public boolean removeTagFromOfflineUser(UUID uuid, String tag) {
         PlayerProfile profile = getProfileFromStorage(uuid);
-        if (profile != null) return false;
+        if (profile == null) return false;
         return profile.removeTag(tag);
+    }
+
+    public boolean addSoundToOfflineUser(UUID uuid, Sound sound) {
+        PlayerProfile profile = getProfileFromStorage(uuid);
+        if (profile == null) return false;
+        return profile.addSound(sound);
+    }
+
+    public boolean removeSoundFromOfflineUser(UUID uuid, Sound sound) {
+        PlayerProfile profile = getProfileFromStorage(uuid);
+        if (profile == null) return false;
+        return profile.removeSound(sound);
     }
 
     public void saveAll() {

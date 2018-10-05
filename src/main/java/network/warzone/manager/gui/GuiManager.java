@@ -14,16 +14,32 @@ import java.util.Map;
  */
 public class GuiManager implements Listener {
 
-    private Map<Player, GuiTagManager> guis = new HashMap<>();
+    private Map<Player, GuiTagManager> tagGuis = new HashMap<>();
+    private Map<Player, GuiSoundManager> soundGuis = new HashMap<>();
 
     @EventHandler
     public void onClick(InventoryClickEvent event) {
-        if (!guis.containsKey((Player) event.getWhoClicked())) return;
-        GuiTagManager gui = guis.get((Player) event.getWhoClicked());
-        if (event.getInventory().equals(gui.getInventory())) {
-            event.setCancelled(true);
-            if (event.getClickedInventory() != null && event.getClickedInventory().equals(gui.getInventory()))
-                gui.onClick(event.getSlot());
+        if (!(event.getWhoClicked() instanceof Player) || event.getInventory() == null || event.getClickedInventory() == null) return;
+        Player player = (Player) event.getWhoClicked();
+        GuiTagManager tagGui = tagGuis.get(player);
+        if (tagGui != null) {
+            if (event.getInventory().equals(tagGui.getInventory())) {
+                event.setCancelled(true);
+                if (event.getClickedInventory().equals(tagGui.getInventory())) {
+                    tagGui.onClick(event.getSlot());
+                }
+                return;
+            }
+        }
+
+        GuiSoundManager soundGui = soundGuis.get(player);
+        if (soundGui != null) {
+            if (event.getInventory().equals(soundGui.getInventory())) {
+                event.setCancelled(true);
+                if (event.getClickedInventory().equals(soundGui.getInventory())) {
+                    soundGui.onClick(event.getSlot(), event.getClick());
+                }
+            }
         }
     }
 
@@ -33,11 +49,16 @@ public class GuiManager implements Listener {
     }
 
     public void addGui(Player player, GuiTagManager guiTagManager) {
-        guis.put(player, guiTagManager);
+        tagGuis.put(player, guiTagManager);
+    }
+
+    public void addGui(Player player, GuiSoundManager guiSoundManager) {
+        soundGuis.put(player, guiSoundManager);
     }
 
     public void removeGui(Player player) {
-        guis.remove(player);
+        tagGuis.remove(player);
+        soundGuis.remove(player);
     }
 
 }

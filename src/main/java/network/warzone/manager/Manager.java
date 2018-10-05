@@ -36,6 +36,7 @@ public final class Manager extends JavaPlugin {
         registerEvents(new JoinListener(), new ChatListener(), guiManager);
 
         getCommand("tags").setExecutor(new TagsCommand());
+        getCommand("joinsounds").setExecutor(new JoinSoundsCommand());
         getCommand("manager").setExecutor(new ManagerCommand());
         getCommand("github").setExecutor(new GithubCommand());
         getCommand("forums").setExecutor(new ForumsCommand());

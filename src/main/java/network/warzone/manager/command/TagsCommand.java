@@ -17,7 +17,7 @@ public class TagsCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             if (Manager.get().getPlayerManager().getPlayerProfile((Player) sender).getTags().isEmpty()) {
-                sender.sendMessage(ChatColor.RED + "You do not have any tags to enable! Purchase some online at https://warzone.store/");
+                sender.sendMessage(ChatColor.RED + "You do not have any tags to enable! Purchase some online at https://tgmwarzone.tebex.io/");
                 return true;
             }
             Player player = (Player) sender;

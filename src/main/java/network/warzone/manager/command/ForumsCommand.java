@@ -22,7 +22,7 @@ public class ForumsCommand implements CommandExecutor {
             player.sendMessage(new ComponentBuilder("\nClick ").color(ChatColor.GREEN)
                     .append(new ComponentBuilder("here")
                             .color(ChatColor.AQUA)
-                            .event(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://warzone.network/"))
+                            .event(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://warzone.forums.gg"))
                             .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Click!").color(ChatColor.YELLOW).create())).create())
                     .append(new ComponentBuilder(" to go to our forums\n")
                             .reset().color(ChatColor.GREEN).create())
