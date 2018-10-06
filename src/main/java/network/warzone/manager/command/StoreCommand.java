@@ -22,7 +22,7 @@ public class StoreCommand implements CommandExecutor {
             player.sendMessage(new ComponentBuilder("\nClick ").color(ChatColor.GREEN)
                     .append(new ComponentBuilder("here")
                             .color(ChatColor.AQUA)
-                            .event(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://warzone.store/"))
+                            .event(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://tgmwarzone.tebex.io/"))
                             .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Click!").color(ChatColor.YELLOW).create())).create())
                     .append(new ComponentBuilder(" to go to our store\n")
                             .reset().color(ChatColor.GREEN).create())
