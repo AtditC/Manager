@@ -3,6 +3,7 @@ package network.warzone.manager.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import network.warzone.manager.Manager;
+import org.bukkit.Sound;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,8 @@ public class PlayerProfile {
     private String name;
     private String displayTag;
     private List<String> tags;
+    private Sound joinSound;
+    private List<Sound> joinSounds;
 
     public void setName(String name) {
         this.name = name;
@@ -27,6 +30,11 @@ public class PlayerProfile {
 
     public void setDisplayTag(String displayTag) {
         this.displayTag = displayTag;
+        save();
+    }
+
+    public void setSound(Sound sound) {
+        this.joinSound = sound;
         save();
     }
 
@@ -59,12 +67,39 @@ public class PlayerProfile {
         return r;
     }
 
+    public boolean addSound(Sound sound) {
+        if (this.joinSound == sound) return false;
+        else if (this.joinSounds == null) {
+            this.joinSounds = new ArrayList<>();
+            this.joinSounds.add(sound);
+        } else if (this.joinSounds.isEmpty() || !this.joinSounds.contains(sound)) {
+            this.joinSounds.add(sound);
+        } else {
+            return false;
+        }
+        save();
+        return true;
+    }
+
+    public boolean removeSound(Sound sound) {
+        if (this.joinSound == sound) this.joinSound = null;
+        if (this.joinSounds == null || this.joinSounds.isEmpty()) {
+            return false;
+        } else if (this.joinSounds.contains(sound)) {
+            joinSounds.remove(sound);
+        } else {
+            return false;
+        }
+        save();
+        return true;
+    }
+
     private void save() {
         Manager.get().getPlayerManager().saveProfileToStorage(this);
     }
 
     public boolean shouldSave() {
-        return (!this.displayTag.equals("") && this.displayTag != null) || (!this.getTags().isEmpty() && this.getTags() != null);
+        return (this.displayTag != null && !this.displayTag.equals("")) || (this.getTags() != null && !this.getTags().isEmpty());
     }
 
 }

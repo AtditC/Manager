@@ -10,6 +10,10 @@ commands:
     description: Select your suffix tag
     aliases: [tag]
     usage: /tags
+  joinsounds:
+    description: Select your join sound
+    aliases: [joinsound,sounds,sound]
+    usage: /joinsounds
   manager: {}
   github:
     description: Sends a link to our GitHub
