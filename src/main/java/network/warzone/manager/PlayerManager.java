@@ -1,6 +1,5 @@
 package network.warzone.manager;
 
-import com.destroystokyo.paper.Title;
 import network.warzone.manager.model.PlayerProfile;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

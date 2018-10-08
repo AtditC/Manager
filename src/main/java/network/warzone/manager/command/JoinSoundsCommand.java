@@ -3,6 +3,7 @@ package network.warzone.manager.command;
 import network.warzone.manager.Manager;
 import network.warzone.manager.gui.GuiSoundManager;
 import network.warzone.manager.gui.GuiTagManager;
+import network.warzone.manager.model.PlayerProfile;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -14,7 +15,8 @@ public class JoinSoundsCommand implements CommandExecutor {
   @Override
   public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
     if (sender instanceof Player) {
-      if (Manager.get().getPlayerManager().getPlayerProfile((Player) sender).getJoinSounds().isEmpty()) {
+      PlayerProfile profile = Manager.get().getPlayerManager().getPlayerProfile((Player) sender);
+      if (profile.getJoinSounds() == null || profile.getJoinSounds().isEmpty()) {
         sender.sendMessage(ChatColor.RED + "You do not have any join sounds to enable! Purchase some online at https://tgmwarzone.tebex.io/");
         return true;
       }
