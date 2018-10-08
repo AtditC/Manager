@@ -1,6 +1,8 @@
 package network.warzone.manager.listeners;
 
 import network.warzone.manager.Manager;
+import network.warzone.manager.model.PlayerProfile;
+import org.bukkit.Sound;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;

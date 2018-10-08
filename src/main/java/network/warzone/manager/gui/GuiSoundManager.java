@@ -13,6 +13,7 @@ import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.permissions.PermissionAttachmentInfo;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -69,11 +70,27 @@ public class GuiSoundManager {
         meta.setDisplayName(ChatColor.RED + "Disable Join Sound");
         disableSoundItem.setItemMeta(meta);
         inventory.setItem(4, disableSoundItem);
-        for (int i = 0; i < profile.getJoinSounds().size(); i++) {
-            int slot = 18 + i;
+        int i = 0;
+        for (; i < profile.getJoinSounds().size(); i++) {
+            int slot = i + 18;
             SoundItem soundItem = new SoundItem(profile.getJoinSounds().get(i));
             soundItemMap.put(slot, soundItem);
             inventory.setItem(slot, soundItem.getItemStack());
+        }
+        for (PermissionAttachmentInfo perm : player.getEffectivePermissions()) {
+            if (perm.getPermission().startsWith("warzone.sounds.")) {
+                String soundName = perm.getPermission().replace("warzone.sounds.", "").toUpperCase();
+                try {
+                    int slot = i + 18;
+                    Sound sound = Sound.valueOf(soundName);
+                    SoundItem soundItem = new SoundItem(sound);
+                    soundItemMap.put(slot, soundItem);
+                    inventory.setItem(slot, soundItem.getItemStack());
+                    i++;
+                    if (i >= 54) break;
+                } catch (IllegalArgumentException ignored) {
+                }
+            }
         }
     }
 
