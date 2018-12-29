@@ -41,6 +41,7 @@ public final class Manager extends JavaPlugin {
         getCommand("github").setExecutor(new GithubCommand());
         getCommand("forums").setExecutor(new ForumsCommand());
         getCommand("store").setExecutor(new StoreCommand());
+        getCommand("rules").setExecutor(new RulesCommand());
     }
 
     @Override

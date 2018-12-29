@@ -26,3 +26,6 @@ commands:
     description: Sends a link to our store
     aliases: [shop]
     usage: /store
+  rules:
+    description: Sends a link to our rules
+    usage: /rules
